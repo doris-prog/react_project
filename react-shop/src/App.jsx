@@ -1,61 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
+import Navbar from './Navbar';
 import ProductCard from './ProductCard';
 
 function App() {
 
-  const [isNavbarShowing, setNavbarShowing] = useState(false);
-
-  useEffect(() => {
-    const syncNavbarState = () => {
-      setNavbarShowing(window.innerWidth >= 992);  
-    };
-
-    syncNavbarState();
-
-    window.addEventListener(`resize`, syncNavbarState);
-
-    return () => windowEventListener(`resize`, syncNavbarState);
-  }, []);
-
-  const toggleNavbar = () => {
-    setNavbarShowing(!isNavbarShowing);
-  };
-
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container">
-          <a className="navbar-brand" href="#">E-Shop</a>
-          <button
-            className="navbar-toggler"
-            type="button" onClick={toggleNavbar}>
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className={`collapse navbar-collapse ${isNavbarShowing} ? "show": ""}`} id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Products</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">About</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       <header className="bg-primary text-white text-center py-5">
         <div className="container">
-          <h1 className="display-4">Welcome to E-Shop</h1>
-          <p className="lead">Discover amazing products at unbeatable prices!</p>
-          <a href="#" className="btn btn-light btn-lg">Shop Now</a>
+          <h1 className="display-4">Welcome to Unforgetable Specations </h1>
+          <p className="lead">Discover romantic and memorable holiday sites at unbeatable prices!</p>
+          <a href="#" className="btn btn-light btn-lg">Come in and View Now</a>
         </div>
       </header>
 
